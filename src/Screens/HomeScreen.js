@@ -5,12 +5,12 @@ import Promos from '../Components/Home/Promos'
 import TopRated from '../Components/Home/TopRated'
 import Layout from '../Layout/Layout'
 
-const HomeScreen = () => {
+const HomeScreen = ({movies}) => {
   return (
     <Layout>  
       <div className='container mx-auto min-h-screen px-2 mb-6'>
-        <Banner/>
-        <PopularMovies/>
+        <Banner movies={movies}/>
+        <PopularMovies  movies={movies}/>
         <Promos/>
         <TopRated/>
         </div>
