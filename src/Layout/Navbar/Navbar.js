@@ -45,7 +45,7 @@ const NavBar = () => {
           About Us
           </NavLink>
           <NavLink to="/contact-us" className={Hover}>
-           ContactUs
+           Contact Us
           </NavLink> <NavLink to="/login" className={Hover}>
            <CgUser className="w-8 h-8"/>
           </NavLink>

@@ -2,7 +2,7 @@ import {FaRegCalendarAlt} from "react-icons/fa"
 import {BiTime} from "react-icons/bi"
 
 const FlexMoviesItems = ({ movie }) => {
-  console.log(movie.release_date);
+
   return (
     <div className="flex space-x-4">
       <div className="flex items-center gap-2">

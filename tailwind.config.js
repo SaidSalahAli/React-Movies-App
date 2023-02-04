@@ -15,9 +15,9 @@ module.exports = {
         xs:"475px"
       },
       colors:{
-        main: '#080a1a',
+        main: '#03071e',
         subMain: '#f20000',
-        dry: '#0b0f29',
+        dry: '#000000',
         star: '#ffb000',
         text: '#c0c0c0',
         border: '#4d5563',

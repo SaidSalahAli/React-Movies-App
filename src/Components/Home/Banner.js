@@ -5,11 +5,11 @@ import FlexMoviesItems from "../FlexMoviesItems";
 // import im1 from '../../../public/imgs/im1.png';
 import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
+import Rating from "../Stars";
 
 const Banner = ({ movies }) => {
-
   return (
-    <div className="relative w-full">
+    <div className="relative w-full mt-6 border border-border p-1   rounded-md scale-105  ">
       <Swiper
         direction="vertical"
         slidesPerView={1}
@@ -18,8 +18,8 @@ const Banner = ({ movies }) => {
         modules={[Autoplay]}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         className="w-full xl:h-96 bg-dry lg:h-64 h-48 ">
-
-        {movies.map((movie, index) => (
+        {movies
+          .map((movie, index) => (
             <SwiperSlide
               key={index}
               className="relatvie rounded overflow-hidden ">
@@ -32,8 +32,14 @@ const Banner = ({ movies }) => {
                 <h1 className="xl:text-4xl truncate capitalize font-sans sm:text-2xl font-bold">
                   {movie.title}
                 </h1>
-                <div className="flex  gap-5 items-center text-dryGray"></div>
-                <FlexMoviesItems movie={movie} />
+
+                <div className="flex  gap-5 items-center text-dryGray">
+                  <FlexMoviesItems movie={movie} />
+                </div>
+
+                <div className="flex items-stretch  text-star">
+                  <Rating className="" value={movie.vote_average} />
+                </div>
                 <div className="flex gap-5 iteme-center">
                   <Link
                     to={`/movie/${movie.homepage}`}
@@ -41,12 +47,13 @@ const Banner = ({ movies }) => {
                     watch
                   </Link>
                   <button className="bg-white hover:text-subMain transitions text-white  px-4 py-3 rounded text-sm bg-opacity-30">
-                    <FaHeart/>
+                    <FaHeart />
                   </button>
                 </div>
               </div>
             </SwiperSlide>
-          )).splice(0 , 6) }
+          ))
+          .splice(0, 6)}
       </Swiper>
     </div>
   );
