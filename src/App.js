@@ -2,7 +2,9 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router'
 import AboutUs from './Screens/AboutUs'
+import ContactUs from './Screens/ContactUs'
 import HomeScreen from './Screens/HomeScreen'
+import MoviesPage from './Screens/Movies'
 import NotFound from './Screens/NotFound'
 
 const App = () => {
@@ -24,6 +26,8 @@ const App = () => {
   <Routes>
     <Route path='/' element={<HomeScreen  movies={movies}/>}/>
     <Route path='/about-us' element={<AboutUs/>}/>
+    <Route path='/contact-us' element={<ContactUs/>}/>
+    <Route path='/movies' element={<MoviesPage movies={movies}/>}/>
     <Route path='*' element={<NotFound/>}/>
   </Routes>
   )

@@ -17,7 +17,7 @@ const Banner = ({ movies }) => {
         speed={1000}
         modules={[Autoplay]}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
-        className="w-full xl:h-96 bg-dry lg:h-64 h-48 ">
+        className="w-full xl:h-96 bg-dry  lg:h-64 h-48 ">
         {movies
           .map((movie, index) => (
             <SwiperSlide
