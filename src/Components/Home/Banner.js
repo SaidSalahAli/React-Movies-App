@@ -9,7 +9,7 @@ import Rating from "../Stars";
 
 const Banner = ({ movies }) => {
   return (
-    <div className="relative w-full mt-6 border border-border p-1   rounded-md scale-105  ">
+    <div className="relative w-full  mt-6   rounded-md scale-105  ">
       <Swiper
         direction="vertical"
         slidesPerView={1}
@@ -42,7 +42,7 @@ const Banner = ({ movies }) => {
                 </div>
                 <div className="flex gap-5 iteme-center">
                   <Link
-                    to={`/movie/${movie.homepage}`}
+                    to={`/movie/${movie.id}`}
                     className="bg-subMain hover:text-main transitions text-white px-8 py-3 rounded font-medium sm:text-sm ">
                     watch
                   </Link>

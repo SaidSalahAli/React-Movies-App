@@ -81,7 +81,7 @@ const Filters = () => {
                     key={index}
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 pl-10 pr-4${
-                        active ? "hover: bg-subMain text-white rounded"  : "text-main"
+                        active ? "hover: bg-subMain transitions text-white rounded"  : "text-main"
                       }`
                     }
                     value={ite}>
@@ -93,9 +93,7 @@ const Filters = () => {
                           {ite.title}</span>
                         {
                           seleted ? (
-                          <span className="absolute inset-y-0 left-0 flex itmes-center pl-3">
-                            <FaCheck className="h-3 w-3" aria-hidden="true" />
-                        </span>):null
+                          <span className="absolute inset-y-0 left-0 flex itmes-center pl-3 "></span>):null
                         }
                         </>
                       )}

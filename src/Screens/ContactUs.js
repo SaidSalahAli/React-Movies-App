@@ -21,7 +21,7 @@ const ContactUs = () => {
       contact: "+01066536008",
     },
     {
-      id: 2,
+      id: 3,
       title: "location",
       info: "I'm from Egypt , I live in Giza ",
       icon: FiMapPin,
@@ -84,7 +84,7 @@ const ContactUs = () => {
               </span>
               <h5 className="text-xl font-semibold mb-2">{item.title}</h5>
 
-              <p classNaem="mb- text-sm text-text leadin-7 ">
+              <p className="mb- text-sm text-text leadin-7 ">
                 <a href={`mailto:${item.contact}`} className="text-blue-600">
                   {item.contact}
                 </a>{'               '}
