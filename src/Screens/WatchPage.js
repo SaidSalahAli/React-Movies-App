@@ -9,16 +9,18 @@ import Layout from "../Layout/Layout";
 
 const WatchPage = () => {
   const param = useParams();
+  const para = param.id;
   const [watchPage, setWatchPage] = useState([]);
+
   console.log(watchPage);
-  //  const [play ,setPlay] = useState(false)
+  const [play, setPlay] = useState(false);
   const getWatchPage = async () => {
     const res = await axios.get(
-      `https://api.themoviedb.org/3/movie/${param.id}?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&language=en-US`
+      `https://api.themoviedb.org/3/movie/${para}/videos?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&language=En-US}`
     );
-    setWatchPage(res.data);
+    // setWatchPage(res.data);
 
-    // console.log(res.data)
+    console.log(res.data.results);
   };
 
   useEffect(() => {
@@ -39,11 +41,28 @@ const WatchPage = () => {
               <FaHeart />
             </button>
             <button className="bg-subMain flex-rows gap-2 hover:text-main transitions  text-white rounded px-8 font-medium py-3 text-sm">
-              <FaCloudDownloadAlt/>Download
+              <FaCloudDownloadAlt />
+              Download
             </button>
           </div>
         </div>
-        {/*  */}
+        {/* Watch vide */}
+        {play ? (
+          <video controls className="w-full h-full rounded">
+            
+            <source
+              src="https://www.youtube.com/embed/"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-">
+              {" "}
+            </source>
+          </video>
+        ) : (
+          <div className="w-full h-screen rounded-lg overflow-hidden relative">
+            <div className="absolute top-0 left-0 bottom-0 right-0 bg-main bg-opacity-30 flex-colo"></div>
+          </div>
+        )}
       </div>
     </Layout>
   );

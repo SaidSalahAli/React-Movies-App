@@ -8,6 +8,7 @@ import { FaHeart } from "react-icons/fa";
 import Rating from "../Stars";
 
 const Banner = ({ movies }) => {
+  
   return (
     <div className="relative w-full  mt-6   rounded-md scale-105  ">
       <Swiper
@@ -17,7 +18,7 @@ const Banner = ({ movies }) => {
         speed={1000}
         modules={[Autoplay]}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
-        className="w-full xl:h-96 bg-dry  lg:h-64 h-48 ">
+        className="w-full  xl:h-96 bg-dry  lg:h-80 h-96 ">
         {movies
           .map((movie, index) => (
             <SwiperSlide
@@ -42,6 +43,7 @@ const Banner = ({ movies }) => {
                 </div>
                 <div className="flex gap-5 iteme-center">
                   <Link
+                   onClick={ window.scrollTo({top: 0, left: 0, behavior: 'smooth'})}
                     to={`/movie/${movie.id}`}
                     className="bg-subMain hover:text-main transitions text-white px-8 py-3 rounded font-medium sm:text-sm ">
                     watch

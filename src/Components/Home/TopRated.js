@@ -17,6 +17,13 @@ const TopRated = ({ movies }) => {
   const classNames =
     "hover:bg-dry transitions text-sm rounded w-8 h-8 flex-colo bg-subMain text-white";
 
+    
+  const goToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+};
   return (
     <div className="my-16 static   ">
       <Titles title="Top Rated" Icon={BsBookmarkStarFill} />
@@ -52,6 +59,7 @@ const TopRated = ({ movies }) => {
                           <FaHeart />
                         </button>
                         <Link
+                          onClick={goToTop}
                           to={`/movie/${movie.id}`}
                           className="font-semibold text-xl trancuted line-clamp-2">
                           {movie.title}

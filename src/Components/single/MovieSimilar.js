@@ -6,6 +6,7 @@ import Movies from "../Movie";
 import Titles from "../Titles";
 
 const MovieSimilar = ({ movieSimilar }) => {
+
   return (
     <div className="my-16 h-full">
       <Titles title="Related moveis" Icon={BsCollectionFill} />

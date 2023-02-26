@@ -9,18 +9,22 @@ import Layout from "../Layout/Layout";
 
 const SingleMovies = () => {
   const param = useParams();
-  const [movie, setMovie] = useState([]);
-
+  let movieId = param.id ;
+  const [movie, setMovie] = useState({});
+  // const [truee, setTruee] = useState(false);
+  // 
+  // setTruee(true)
   const getMovieDetails = async () => {
     const res = await axios.get(
       `https://api.themoviedb.org/3/movie/${param.id}?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&language=en-US`
     );
     setMovie(res.data);
-
+    // setTruee(false)
     // console.log(res.data)
   };
 
   const [movieSimilar, setMovieSimilar] = useState([]);
+  
   const MovieSimilarr = async () => {
     const res = await axios.get(
       `https://api.themoviedb.org/3/movie/${param.id}/similar?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&language=en-US&page=1`
@@ -31,7 +35,10 @@ const SingleMovies = () => {
   useEffect(() => {
     MovieSimilarr();
     getMovieDetails();
-  }, [movie, movieSimilar]);
+
+  }, [movieId]);
+
+  // console.log(movie)
 
   return (
     <Layout>

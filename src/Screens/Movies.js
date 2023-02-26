@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 // import { CgSpinner } from "react-icons/cg";
 import Filters from "../Components/Filters";
 import Movies from "../Components/Movie";
 // import Head from "../Components/Home/Head";
 import Layout from "../Layout/Layout";
 
-const MoviesPage = ({movies}) => {
-
+const MoviesPage = ({movies,filterbyYarse,filterbygenre ,genres}) => {
+  
   const maxPages = 10;
   const [page ,setPege] = useState (maxPages)
   const handelLodingMore = ()=>{
@@ -15,7 +16,7 @@ const MoviesPage = ({movies}) => {
   return (
     <Layout>
       <div className="min-height-screen container mx-auto px-20 my-6">
-        <Filters  />
+        <Filters genres={genres} filterbygenre={filterbygenre} filterbyYarse={filterbyYarse}  />
         <p className="text-lg front-medium my-6">
           TOTAL  <span className="font-bold text-subMain">{movies?.length}</span>{'   '}
         </p>

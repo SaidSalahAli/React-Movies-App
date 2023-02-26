@@ -12,7 +12,6 @@ const HomeScreen = ({movies}) => {
         <Banner movies={movies}/>
         <TopRated movies={movies}/>
         <PopularMovies  movies={movies}/>
-        {/* <Promos /> */}
         </div>
     </Layout>
   

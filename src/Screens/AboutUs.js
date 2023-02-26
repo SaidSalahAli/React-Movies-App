@@ -3,6 +3,14 @@ import Head from "../Components/Home/Head";
 import Layout from "./../Layout/Layout";
 
 const AboutUs = () => {
+
+//   const goToTop = () => {
+//     window.scrollTo({
+//         top: 0,
+//         behavior: 'smooth',
+//     });
+// };
+
   return (
     <Layout>
       <div className="min-height-screen container mx-auto px-2 my-6">
