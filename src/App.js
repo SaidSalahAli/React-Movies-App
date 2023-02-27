@@ -26,11 +26,11 @@ const App = () => {
   };
   let newMovie = movies.filter(
     (ele) =>
-      !["ja", "ko", "tl", "cn", "fr", "zh"].includes(ele.original_language) 
-      // !ele.genre_ids.includes(10749)
+      !["ja", "ko", "tl", "cn", "fr", "zh"].includes(ele.original_language) &&
+      !ele.genre_ids.includes(10749)
   );
   useEffect(() => {
-    // gitAllMovies()
+    gitAllMovies()
     filterbygenre()
   }, []);
 
