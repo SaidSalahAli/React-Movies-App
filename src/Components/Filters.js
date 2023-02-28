@@ -28,7 +28,7 @@ const YearData = [
 const Filters = ({ filterbygenre ,filterbyYarse}) => {
   const [genres, setGenrs] = useState([]); 
   // const [category, setCategory] = useState(CategoriesData[0]);
-  const [year, setYear] = useState(YearData[1]);
+  // const [year, setYear] = useState(YearData[1]);
   // const [rates, setRates] = useState(RatesData[0]);
 
   const filterbygenr = async () => {

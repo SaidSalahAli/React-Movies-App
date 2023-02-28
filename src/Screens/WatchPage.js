@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { BiArrowBack } from "react-icons/bi";
-import { FaCloudDownloadAlt, FaHeart } from "react-icons/fa";
+import { FaCloudDownloadAlt, FaHeart, FaPlay } from "react-icons/fa";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Layout from "../Layout/Layout";
@@ -10,17 +10,20 @@ import Layout from "../Layout/Layout";
 const WatchPage = ({ movies }) => {
   const param = useParams();
   const para = param.id;
-  console.log(para)
+  console.log(movies);
   const [watchPage, setWatchPage] = useState([]);
 
   console.log(watchPage);
-  const [play, setPlay] = useState([]);
-  
+  const [play, setPlay] = useState(false);
 
   const getWatchPage = async () => {
     const res = await axios.get(
       `https://api.themoviedb.org/3/movie/${para}/videos?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&language=En-US}`
     );
+    const resq = await axios.get(
+      `https://api.themoviedb.org/3/movie/${param.id}?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&language=en-US`
+    );
+    setWatchPage(resq.data);
     // setWatchPage(res.data);
 
     setPlay(res.data.results);
@@ -38,7 +41,7 @@ const WatchPage = ({ movies }) => {
             to={`/movie/${watchPage?.id}`}
             className="md:text-xl text-sm flex gap-3 items-center font-bold text-dryGray">
             <BiArrowBack />
-            {watchPage?.name}
+            {watchPage?.title}
           </Link>
           <div className="flex-btn sm:w-auto w-full gap-5">
             <button className="bg-white hover:text-subMain transitions bg-opacity-30 text-white rounded px-4 py-3 text-sm">
@@ -52,19 +55,38 @@ const WatchPage = ({ movies }) => {
         </div>
         {/* Watch vide */}
         {play ? (
-          // <video controls  className="w-full h-full rounded">
           <iframe
             width="100%"
-            height="450"
-            border="0"
+            height="450px"
             src={`https://www.youtube.com/embed/${play[0]?.key}`}
-            >
-
-          </iframe>
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
         ) : (
-          // </video>
+          // <iframe
+          //   width="100%"
+          //   height="450"
+          //   border="0"
+          //   src={`https://www.youtube.com/embed/${play[0]?.key}`}
+          //   frameborder="0"
+          //   title="YouTube video"
+          //   allow="accelerometer"
+          //   >
+
+          // </iframe>
           <div className="w-full h-screen rounded-lg overflow-hidden relative">
-            <div className="absolute top-0 left-0 bottom-0 right-0 bg-main bg-opacity-30 flex-colo"></div>
+            <div className="absolute top-0 left-0 bottom-0 right-0 bg-main bg-opacity-30 flex-colo">
+              <button
+                onClick={() => setPlay(true)}
+                className="bg-white text-subMain flex-colo rounded-full w-20 h-20 font-medium text-xl">
+                <FaPlay />
+              </button>
+            </div>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${movies?.poster_path}`}
+              alt=""
+            />
           </div>
         )}
       </div>

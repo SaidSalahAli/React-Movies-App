@@ -5,7 +5,9 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 const FiltersByGenrs = ({filterbygenre, }) => {
+
   const [genres, setGenrs] = useState([]);
+  
   const filterbygenr = async () => {
     const res = await axios.get(
       ` https://api.themoviedb.org/3/genre/movie/list?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&language=en-US`

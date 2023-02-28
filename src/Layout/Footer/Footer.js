@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   AiFillFacebook,
@@ -6,6 +6,8 @@ import {
   AiOutlineInstagram,
 } from "react-icons/ai";
 import { BsGithub } from "react-icons/bs";
+import axios from "axios";
+import Filters from "../../Components/Filters";
 
 const Links = [
   {
@@ -34,19 +36,19 @@ const Links = [
     links: [
       {
         name: "Action",
-        link: "#",
+        link: "/movies",
       },
       {
         name: "Romantic",
-        link: "#",
+        link: "/movies",
       },
       {
         name: "Drama",
-        link: "#",
+        link: "/movies",
       },
       {
         name: "Historical",
-        link: "#",
+        link: "/movies",
       },
     ],
   },
@@ -73,6 +75,24 @@ const Links = [
   },
 ];
 const Footer = () => {
+
+  const [genres, setGenrs] = useState({}); 
+  console.log(typeof genres);  
+  // const [category, setCategory] = useState(CategoriesData[0]);
+  // const [year, setYear] = useState(YearData[1]);
+  // const [rates, setRates] = useState(RatesData[0]);
+
+  const filterbygenr = async () => {
+    const res = await axios.get(
+      ` https://api.themoviedb.org/3/genre/movie/list?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&language=en-US`
+    );
+
+    setGenrs(res.data.genres);
+  };
+  useEffect(() => {
+    filterbygenr();
+  }, []);
+
   return (
     <div className="bg-dry py-4 border=t-2 border-black">
       <div className="container mx-auto px-2">
@@ -85,6 +105,7 @@ const Footer = () => {
                 {link.title}
               </h3>
               <ul className="text-sm flex flex-col space-y-3">
+        
                 {link.links.map((text, index) => (
                   <li key={index} className="flex  items-baseline ">
                     <Link
