@@ -1,13 +1,13 @@
 import React from 'react'
-import Table from '../../Components/Table'
-import SideBar from './SideBar'
+import Table from '../../../Components/Table'
+import SideBar from '../SideBar'
 
-const FavoritesMovies = ({movies }) => {
+const Movieslist = ({movies }) => {
   return (
    <SideBar>
   <div className="flex flex-col gap-6">
     <div className="flex-btn gap-2">
-        <h2 className="text-xl font-bold">Favorites Movies</h2>
+        <h2 className="text-xl font-bold">Movies List</h2>
         <button className="bg-main transitions hover:bg-subMain border border-subMain text-white py-3 px-6 rounded ">
             Delet All
         </button>
@@ -18,4 +18,4 @@ const FavoritesMovies = ({movies }) => {
   )
 }
 
-export default FavoritesMovies
+export default Movieslist

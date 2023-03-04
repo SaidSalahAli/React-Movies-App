@@ -26,12 +26,12 @@ const Login = () => {
             type="password"
             bg={true}
           />
-           <Link to="/dashbord" className="bg-subMain transitions hover:bg-main flex justify-center gap-4 text-white p-4 rounded-lg w-full">
+           <Link to="/dashBoard" className="bg-subMain transitions hover:bg-main flex justify-center gap-4 text-white p-4 rounded-lg w-full">
             <FiLogIn/> Sign In 
            </Link>
            <p className="text-conter text-border">
             Don't have an acconut ?
-            <Link to="/register" className="text-dryGray font-semibold ml-2 hover:text-subMain transitions" >
+            <Link to="/registe" className="text-dryGray font-semibold ml-2 hover:text-subMain transitions" >
                 Sign in
             </Link>
            </p>

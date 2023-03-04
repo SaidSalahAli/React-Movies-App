@@ -1,8 +1,16 @@
+import Aos from "aos";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router";
 import AboutUs from "./Screens/AboutUs";
 import ContactUs from "./Screens/ContactUs";
+import Categories from "./Screens/Dashboard/Admin/Categories";
+import DashBoard from "./Screens/Dashboard/Admin/DashBoard";
+import Movieslist from "./Screens/Dashboard/Admin/MoviesList";
+import Users from "./Screens/Dashboard/Admin/Users";
+import FavoritesMovies from "./Screens/Dashboard/favoritesMovies";
+import Passwoed from "./Screens/Dashboard/Passwoed";
+import Portfile from "./Screens/Dashboard/Portfile";
 import HomeScreen from "./Screens/HomeScreen";
 import Login from "./Screens/Login";
 import MoviesPage from "./Screens/Movies";
@@ -12,6 +20,7 @@ import SingleMovies from "./Screens/SingleMovies";
 import WatchPage from "./Screens/WatchPage";
 
 const App = () => {
+  Aos.init();
   const [movies, setMovies] = useState([]);
 
   // const [sarchMovies , sarchMovies] = useState([])/
@@ -74,6 +83,18 @@ const App = () => {
       <Route path="/watch/:id" element={<WatchPage movies={newMovie} />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/portfile" element={<Portfile />} />
+      <Route path="/passwoed" element={<Passwoed />} />
+      <Route path="/dashBoard" element={<DashBoard movies={newMovie} />} />
+      <Route
+        path="/favorites"
+        element={<FavoritesMovies movies={newMovie} />}
+      />
+      <Route path="movieslist" element={<Movieslist movies={newMovie} />} />
+      <Route path="categories" element={<Categories movies={newMovie} />} />
+      <Route path="users" element={<Users movies={newMovie} />} />
+
+
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

@@ -7,7 +7,7 @@ import {
 } from "react-icons/ai";
 import { BsGithub } from "react-icons/bs";
 import axios from "axios";
-import Filters from "../../Components/Filters";
+// import Filters from "../../Components/Filters";
 
 const Links = [
   {
@@ -64,8 +64,8 @@ const Links = [
         link: "/favorite",
       },
       {
-        name: "Profile",
-        link: "/profile",
+        name: "Portfile",
+        link: "/portfile",
       },
       {
         name: "Chang Password",
@@ -77,7 +77,7 @@ const Links = [
 const Footer = () => {
 
   const [genres, setGenrs] = useState({}); 
-  console.log(typeof genres);  
+  // console.log(typeof genres);  
   // const [category, setCategory] = useState(CategoriesData[0]);
   // const [year, setYear] = useState(YearData[1]);
   // const [rates, setRates] = useState(RatesData[0]);
