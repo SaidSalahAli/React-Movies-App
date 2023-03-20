@@ -5,8 +5,8 @@ import { RiLockPasswordLine, RiMovie2Fill } from "react-icons/ri";
 import { HiViewGridAdd } from "react-icons/hi";
 import { FiSettings } from "react-icons/fi";
 import Layout from "../../Layout/Layout";
-import { Link, NavLink } from "react-router-dom";
-const SideBar = ({ children }) => {
+import {  NavLink } from "react-router-dom";
+const SideBar = ({ children ,lengthfavourites}) => {
   const sideLincks = [
     {
       name: "Dashboard",
@@ -17,11 +17,6 @@ const SideBar = ({ children }) => {
       name: "Movies list",
       link: "/movieslist",
       icons: FaRegListAlt,
-    },
-    {
-      name: "Add Movie",
-      link: "/addmovie",
-      icons: RiMovie2Fill,
     },
     {
       name: "Categories ",
@@ -53,7 +48,7 @@ const SideBar = ({ children }) => {
     isActive ? `${active} ${inActive}` : `${inActive} ${hover}`;
 
   return (
-    <Layout>
+    <Layout lengthfavourites={lengthfavourites}>
       <div className="min-h-screen container mx-auto px-2">
         <div className="xl:grid grid-cols-8 gap-10 items-start md:py-12 py-6">
           <div className="col-span-2 sticky   bg-dry border border-gray-800 p-6 rounded-md xl:mb-0 mb-5 ">

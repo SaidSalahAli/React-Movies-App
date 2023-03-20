@@ -3,9 +3,9 @@ import { Input } from "../../Components/single/UsedInputs";
 import Uploder from "../../Components/Uploder";
 import SideBar from "./SideBar";
 
-const Passwoed = () => {
+const Passwoed = ({lengthfavourites}) => {
   return (
-    <SideBar>
+    <SideBar lengthfavourites={lengthfavourites}>
       <div className="flex flex-col gap-6">
         <h2 className="text-xl font-bold">Change Passwoed</h2>
         <Input

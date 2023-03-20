@@ -5,7 +5,7 @@ import FlexMoviesItems from "../FlexMoviesItems";
 import { FiLogIn } from "react-icons/fi";
 // import { type } from "@testing-library/user-event/dist/type";
 
-const MovieInfo = ({ movie }) => {
+const MovieInfo = ({ movie,setModelLopen }) => {
   // console.log(s[0])
   // console.log(Object.keys(Object.keys(s)[0)[0])
   // const myName = Object.keys(s[0])[0]
@@ -62,7 +62,9 @@ const MovieInfo = ({ movie }) => {
               <div className="grid sm:grid-cols-5 grid-cols-3 gap-4 p-6 bg-main border-gray-800 rounded-lg">
                 {/* share */}
                 <div className=" col-span-1 flex-colo border-r border-border">
-                  <button className=" w-10 h-10 flex-colo rounded-lg bg-white bg-opacity-20">
+                  <button 
+                  onClick={()=> setModelLopen(true)}
+                  className=" w-10 h-10 flex-colo rounded-lg bg-white bg-opacity-20">
                     <FaShareAlt />
                   </button>
                 </div>

@@ -6,8 +6,9 @@ import MovieInfo from "../Components/single/MovieInfo";
 import MovieRates from "../Components/single/MovieRates";
 import MoviesCasts from "../Components/single/MoviesCasts";
 import Layout from "../Layout/Layout";
+import ShareModel from "../Components/Model/ShareModel";
 
-const SingleMovies = () => {
+const SingleMovies = ({lengthfavourites}) => {
   const param = useParams();
   let movieId = param.id ;
   const [movie, setMovie] = useState({});
@@ -39,10 +40,14 @@ const SingleMovies = () => {
   }, [movieId]);
 
   // console.log(movie)
+  const [modelOpen,setModelLopen ] =useState(false)
 
   return (
-    <Layout>
-      <MovieInfo movie={movie} />
+    <Layout lengthfavourites={lengthfavourites}>
+      <ShareModel modelOpen={modelOpen} setModelLopen={setModelLopen} 
+      movie={movie}
+      />
+      <MovieInfo movie={movie} setModelLopen={setModelLopen}  />
       <div className="container mx-auto min-h-screen px-2 my-6 ">
         <MoviesCasts movie={movie} />
         {/* Rates */}

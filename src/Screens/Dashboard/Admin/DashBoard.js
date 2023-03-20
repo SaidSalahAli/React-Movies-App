@@ -4,10 +4,10 @@ import { HiViewGridAdd } from "react-icons/hi";
 import Table from "../../../Components/Table";
 import SideBar from "../SideBar";
 
-const DashBoard = ({movies}) => {
+const DashBoard = ({movies,lengthfavourites}) => {
     const Movies = movies.map((movie)=> (movie))
   return (
-    <SideBar>
+    <SideBar lengthfavourites={lengthfavourites}>
       <h2 className="text-xl font-bold rounded-lg">Dash Board</h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-4 ">
         <div className="p-4 ronunded bg-main border-border grid grid-cols-4 gap-2">

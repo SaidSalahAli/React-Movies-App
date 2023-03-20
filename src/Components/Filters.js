@@ -25,11 +25,8 @@ const YearData = [
 //   { title: "15 - 20 star" },
 // ];
 
-const Filters = ({ filterbygenre ,filterbyYarse}) => {
+const Filters = ({ filterbygenre }) => {
   const [genres, setGenrs] = useState([]); 
-  // const [category, setCategory] = useState(CategoriesData[0]);
-  // const [year, setYear] = useState(YearData[1]);
-  // const [rates, setRates] = useState(RatesData[0]);
 
   const filterbygenr = async () => {
     const res = await axios.get(
@@ -58,8 +55,8 @@ const Filters = ({ filterbygenre ,filterbyYarse}) => {
           <div className="relative">
             <Listbox.Button className="relative border border-gray-800 w-full text-white bg-main rounded-lg cursor-default py-4 pl-6 pr-10 text-left text-xs">
               <span className="block truncate">{item.value?.name? item.value?.name : "Catgrey" }</span>
-            </Listbox.Button>
-            <Transition
+            </Listbox.Button> 
+            <Transition 
               as={Fragment}
               leave="transition ease-in duration-100 "
               leaveFrom="opacity-100"

@@ -7,13 +7,10 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Layout from "../Layout/Layout";
 
-const WatchPage = ({ movies }) => {
+const WatchPage = ({ movies ,lengthfavourites}) => {
   const param = useParams();
   const para = param.id;
-  console.log(movies);
   const [watchPage, setWatchPage] = useState([]);
-
-  console.log(watchPage);
   const [play, setPlay] = useState(false);
 
   const getWatchPage = async () => {
@@ -34,7 +31,7 @@ const WatchPage = ({ movies }) => {
   }, []);
 
   return (
-    <Layout>
+    <Layout  lengthfavourites={lengthfavourites}>
       <div className="containar mx-auto bg-dry p-6 mb-12">
         <div className="flex-btn flex-wrap mb-6 gap-2 bg-main rounded border border-gray-800 p-6">
           <Link

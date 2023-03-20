@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { Input } from "../Components/single/UsedInputs";
 import Layout from "../Layout/Layout";
 
-const Login = () => {
+const Login = ({lengthfavourites}) => {
   return (
-    <Layout>
+    <Layout lengthfavourites={lengthfavourites}>
       <div className="container mx-auto px-2 my-24 flex-colo">
         <div className="w-full 2xl:w-2/5 gap-8 flex-colo p-8 sm:p-14 md:w-3/5 bg-dry rounded-lg border border-border">
           <img
@@ -31,8 +31,8 @@ const Login = () => {
            </Link>
            <p className="text-conter text-border">
             Don't have an acconut ?
-            <Link to="/registe" className="text-dryGray font-semibold ml-2 hover:text-subMain transitions" >
-                Sign in
+            <Link to="/register" className="text-dryGray font-semibold ml-2 hover:text-subMain transitions" >
+                Sign Up
             </Link>
            </p>
         </div>

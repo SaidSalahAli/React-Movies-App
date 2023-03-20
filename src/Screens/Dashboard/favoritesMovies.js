@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Table from '../../Components/Table'
 import SideBar from './SideBar'
 
-const FavoritesMovies = ({movies }) => {
+const FavoritesMovies = ({favourites,lengthfavourites}) => {
+
+  // const [allMovies,setMovise] = useState([])
+  // let holdMovies =  useRef()
+  // useEffect(() => {
+  // let allMovies = JSON.parse(localStorage.getItem("movies"))
+  // holdMovies.current = allMovies
+  // // setMovise(allMovies)
+  // },[])
+  // console.log(holdMovies.current)
+  
+
   return (
-   <SideBar>
+   <SideBar lengthfavourites={lengthfavourites}>
   <div className="flex flex-col gap-6">
     <div className="flex-btn gap-2">
         <h2 className="text-xl font-bold">Favorites Movies</h2>
@@ -12,7 +23,7 @@ const FavoritesMovies = ({movies }) => {
             Delet All
         </button>
         </div>
-        <Table movies={movies} admin={true}/>
+        <Table movies={favourites} admin={true}/>
         </div>
    </SideBar>
   )

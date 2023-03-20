@@ -10,6 +10,7 @@ const Text = "text-sm  text-left leading-6 whitespace-nowrap  px-5 py-3 ";
 const Head = "text-xs text-left text-main font-semibold px-6 py-2 uppercase";
 
 const Table = ({ movies, admin }) => {
+  console.log(movies)
   
 const Rows = (movie, id, admin) => {
   return (
@@ -80,7 +81,7 @@ const Rows = (movie, id, admin) => {
           </tr>
         </thead>
         <tbody className="bg-main divide-y divide-gray-800">
-          {movies.map((movie, id) => Rows(movie, id, admin))}
+          {movies && movies.map((movie, id) => Rows(movie, id, admin))}
         </tbody>
       </table>
     </div>

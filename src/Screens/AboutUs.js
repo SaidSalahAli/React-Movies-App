@@ -2,7 +2,7 @@ import React from "react";
 import Head from "../Components/Home/Head";
 import Layout from "./../Layout/Layout";
 
-const AboutUs = () => {
+const AboutUs = ({lengthfavourites}) => {
 
 //   const goToTop = () => {
 //     window.scrollTo({
@@ -12,7 +12,7 @@ const AboutUs = () => {
 // };
 
   return (
-    <Layout>
+    <Layout lengthfavourites={lengthfavourites}>
       <div className="min-height-screen container mx-auto px-2 my-6">
         <Head title="About Us" />
         <div className="xl:py-20 py-10 px-4">

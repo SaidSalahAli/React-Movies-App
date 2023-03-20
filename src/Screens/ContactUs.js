@@ -4,7 +4,7 @@ import { FiMail, FiMapPin, FiPhoneCall } from "react-icons/fi";
 import Head from "../Components/Home/Head";
 import Layout from "../Layout/Layout";
 
-const ContactUs = () => {
+const ContactUs = ({lengthfavourites}) => {
   const contactData = [
     {
       id: 1,
@@ -29,7 +29,7 @@ const ContactUs = () => {
     },
   ];
   return (
-    <Layout>
+    <Layout lengthfavourites={lengthfavourites}>
       <div className="  min-height-screen container mx-auto px-2 my-6">
         <Head title="Contact Us"/>
       <div className="grid mg:grid-cols-2 gap-6 lg:my-20 my-10 lg:grid-cols-2 xl:gap-8" >

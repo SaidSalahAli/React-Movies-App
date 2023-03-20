@@ -8,9 +8,9 @@ import SideBar from "./SideBar";
 // import {HiViewGridAdd,  } from 'react-icons/hi'
 // import {FiSettings } from 'react-icons/fi'
 
-const Portfile = () => {
+const Portfile = ({lengthfavourites}) => {
   return (
-    <SideBar>
+    <SideBar lengthfavourites={lengthfavourites}>
       <div className="flex flex-col gap-6">
         <h2 className="text-xl font-bold">Portfile</h2>
     

@@ -2,9 +2,9 @@ import React from 'react'
 import Table from '../../../Components/Table'
 import SideBar from '../SideBar'
 
-const Movieslist = ({movies }) => {
+const Movieslist = ({movies,lengthfavourites }) => {
   return (
-   <SideBar>
+   <SideBar lengthfavourites={lengthfavourites}>
   <div className="flex flex-col gap-6">
     <div className="flex-btn gap-2">
         <h2 className="text-xl font-bold">Movies List</h2>

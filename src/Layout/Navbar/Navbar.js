@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaSearch, FaHeart } from "react-icons/fa";
 import { CgUser } from "react-icons/cg";
+import { AiOutlineMenu } from "react-icons/ai";
+import { NavbarLinks } from "./NavbarLinks";
+import Research from "../../Screens/Research";
 
-const NavBar = () => {
+const NavBar = ({ getAllMovieSarsh,lengthfavourites}) => {
   // hover active nav link
 
   const hover = "hover:text-subMain transitions text-white";
-  
-  const Hover = ({ isActive }) => ( isActive ? "text-subMain" : hover );
 
+  const Hover = ({ isActive }) => (isActive ? "text-subMain" : hover);
+
+const handle = (event) =>{
+ getAllMovieSarsh(event)
+}
   return (
     <div className="bg-main shadow-md sticky  top-0 z-20">
       <div className="container mx-auto py-6 px-2 lg:grid gap=10 grid-cols-7 justify-between items-center">
-        <div className="col-span-1 lg:block hidden">
+        <div className="col-span-1 flex justify-between ">
           <Link to="/">
             <img
               src="/imgs/logo.png"
@@ -23,41 +29,17 @@ const NavBar = () => {
           </Link>
         </div>
         {/* search from */}
-        <div className="col-span-3 flex justify-between">
-          <div className="w-full text-sm bg-dryGray rounded flex-btn gap-4">
-            <input
-              type="text"
-              placeholder="Search Moie from here"
-              className="font-medium placeholder:text-border text-sm w-11/12 h-12 bg-transparent border-none px-2 text-black"
-              // onChange={}
-            />
-          </div>
-          <button
+        <div className="col-span-3  flex justify-end">
+          <Link to='/research'
             type="submit"
-            className="bg-subMain hover:text-black transitions w-12 flex-colo ml-2 mr-10 h-12 rounded text-white">
+            className=" hover:text-subMain transitions w-12 flex-colo ml-2 mr-10 h-12 rounded text-white">
             <FaSearch />
-          </button>
+          </Link>
         </div>
         {/* menus */}
+
         <div className=" col-span-3  font-medium text-sm hidden xl:gap-14 2xl:gap-20 justify-between lg:flex xl:justify-end items-center">
-          <NavLink to="/movies" className={Hover}>
-            Movies
-          </NavLink>
-          <NavLink to="/about-us" className={Hover}>
-            About Us
-          </NavLink>
-          <NavLink to="/contact-us" className={Hover}>
-            Contact Us
-          </NavLink>{" "}
-          <NavLink to="/login" className={Hover}>
-            <CgUser className="w-8 h-8" />
-          </NavLink>
-          <NavLink to="/faHeart" className={`${Hover} relative`}>
-            <FaHeart className="w-6 h-6" />
-            <div className="w-5 h-5 flex-colo rounded-full text-xs bg-subMain text-white absolute -top-5 -right-1">
-              3
-            </div>
-          </NavLink>
+          <NavbarLinks lengthfavourites={lengthfavourites} Hover={Hover} />
         </div>
       </div>
     </div>

@@ -4,8 +4,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-const FiltersByGenrs = ({filterbygenre, }) => {
-
+const FiltersByGenrs = ({filterbygenre }) => {
   const [genres, setGenrs] = useState([]);
   
   const filterbygenr = async () => {
