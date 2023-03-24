@@ -19,12 +19,7 @@ const Categories = ({lengthfavourites }) => {
   <div className="flex flex-col gap-6">
     <div className="flex-btn gap-2">
         <h2 className="text-xl font-bold">Categories</h2>
-        <button
-             onClick={() => setModelLopen(true) }   
-             className="bg-subMain flex gap-4 font-medium transitions hover:bg-subMain border border-subMain text-white py-2 px-4 rounded-md"
-             >
-           <HiPlusCircle />Create 
-        </button>
+    
         </div>
         <Table2 users={true}/>
         </div>
