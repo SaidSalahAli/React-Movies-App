@@ -22,9 +22,16 @@ import Research from "./Screens/Research";
 const App = () => {
   Aos.init();
 
-  const [favourites, setFavourites] = useState(
-    () => JSON.parse(localStorage.getItem("favourites")) || "[]"
-  );
+  const [favourites, setFavourites] = useState(() => {
+    const storedFavourites = JSON.parse(localStorage.getItem("favourites")) || [];
+    const uniqueFavourites = storedFavourites.filter((favourite, index, self) =>
+      index === self.findIndex((item) => item.id === favourite.id)
+    );
+    return uniqueFavourites;
+  });
+  // const [favourites, setFavourites] = useState(
+  //   () => JSON.parse(localStorage.getItem("favourites")) || "[]"
+  // );
   const lengthfavourites = favourites?.length;
 
   useEffect(() => {
@@ -32,9 +39,17 @@ const App = () => {
   }, [favourites]);
 
   const addFavouriteMovie = (movie) => {
-    const newFavouriteList = [...favourites, movie];
-    setFavourites(newFavouriteList);
+    const isAlreadyFavourite = favourites.some((favourite) => favourite?.id === movie?.id);
+    if (!isAlreadyFavourite) {
+      const newFavouriteList = [...favourites, movie];
+      setFavourites(newFavouriteList);
+    }
   };
+  // const addFavouriteMovie = (movie) => {
+  //   const newFavouriteList = [...favourites, movie];
+  //   setFavourites(newFavouriteList);
+  // };
+  
   const removeFavouriteMovie = (movie) =>{
     console.log(movie)
     const newFavouriteList = favourites.filter (
@@ -43,7 +58,7 @@ const App = () => {
 
     setFavourites(newFavouriteList);
   };
-  console.log(favourites)
+
 
   //   let newMovie = movies.filter(
   //     (ele) =>
