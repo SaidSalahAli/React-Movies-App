@@ -54,9 +54,9 @@ const Watchs = ({ movies}) => {
             height="450px"
             src={`https://www.youtube.com/embed/${play[0]?.key}`}
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
+            allowFullScreen></iframe>
         ) : (
           <div className="w-full h-screen rounded-lg overflow-hidden relative">
             <div className="absolute top-0 left-0 bottom-0 right-0 bg-main bg-opacity-30 flex-colo">

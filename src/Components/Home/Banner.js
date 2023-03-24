@@ -57,11 +57,6 @@ const Banner = ({handleFavouritesClick}) => {
                 </div>
                 <div className="flex gap-5 z-10 iteme-center">
                   <Link
-                    onClick={window.scrollTo({
-                      top: 0,
-                      left: 0,
-                      behavior: "smooth",
-                    })}
                     to={`/movie/${movie.id}`}
                     className="bg-subMain text-xs  hover:text-main transitions text-white px-8 py-3 rounded font-medium sm:text-sm ">
                     watch
