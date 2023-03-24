@@ -47,5 +47,7 @@ select:focus {
 .zIndex {
     z-index: 1000;
 }
-
+.favBtn.active{
+  background:#f00
+}
 /* Drawer */

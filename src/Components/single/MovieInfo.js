@@ -2,16 +2,8 @@ import React from "react";
 import { FaPlay, FaShareAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import FlexMoviesItems from "../FlexMoviesItems";
-import { FiLogIn } from "react-icons/fi";
-// import { type } from "@testing-library/user-event/dist/type";
-
+import Rating from "../Stars";
 const MovieInfo = ({ movie,setModelLopen }) => {
-  // console.log(s[0])
-  // console.log(Object.keys(Object.keys(s)[0)[0])
-  // const myName = Object.keys(s[0])[0]
-  // console.log(myName)
-  //  console.log(movie.spoken_languages[0].english_name)
-
   return (
     <div className="w-full xl:h-full relative text-white">
       {movie?.backdrop_path ? (
@@ -30,7 +22,7 @@ const MovieInfo = ({ movie,setModelLopen }) => {
 
       <div className="xl:bg-main bg-dry flex-colo xl:bg-opacity-90 p-20 xl:absolute top-0 left-0 right-0 bottom-0 ">
         <div className="cotainer px-3 mx-auto 2xl:px-32 xl:grid grid-cols-3 flex-colo py-10 lg:py-20 gap-8">
-          <div className="xl:col-span-1 w-full xl:order-none order-last h-header bg-dry bprder border-gray-800  rounded-lg overflow-hidden">
+          <div className="xl:col-span-1 w-full xl:order-none h-header bg-dry bprder border-gray-800  rounded-lg overflow-hidden">
             {movie?.poster_path ? (
               <img
                 src={`https://image.tmdb.org/t/p/w500/${movie?.poster_path}`}
@@ -51,12 +43,18 @@ const MovieInfo = ({ movie,setModelLopen }) => {
               <h1 className="xl:text-4x1 capitalize font-sans text-2xl font-bold">
                 {movie?.title}
               </h1>
+              <h1 className="xl:text-4x1 capitalize font-sans text-2xl font-bold">
+                {movie?.title}
+              </h1>
               <div className="flex items-center gap-4 font-medium text-dryGray">
                 <div className="flex-colo bg-subMain text-xs px-2 py-1">
                   {movie?.vote_count} K
                 </div>
                 <FlexMoviesItems movie={movie} />
               </div>
+              <div className="inline-flex items-baseline text-star">
+                          <Rating value={movie.vote_average} />
+                        </div>
               {/* descrepthion*/}
               <p className="text-text text-sm leading-7 ">{movie?.overview}</p>
               <div className="grid sm:grid-cols-5 grid-cols-3 gap-4 p-6 bg-main border-gray-800 rounded-lg">
@@ -72,8 +70,11 @@ const MovieInfo = ({ movie,setModelLopen }) => {
                 <div className="col-span-2 flex-colo font-medium text-sm">
                   <p>
                     Language :{" "}
-                    <span className="ml-2 truncate uppercase">
+                    <span className="ml-2  truncate uppercase">
                       {movie && movie.spoken_languages?.[0]  ? movie.spoken_languages?.[0].english_name : null}
+                    </span>
+                    <span className="ml-6 mt-2 flex justify-start truncate uppercase">
+                     type : {" "} {movie && movie.genres?.[0] ? movie.genres?.[0].name : null} 
                     </span>
                   </p>
                 </div>
@@ -88,15 +89,12 @@ const MovieInfo = ({ movie,setModelLopen }) => {
                   </Link>
                 </div>
               </div>
+              <div>
+                
+              </div>
+            
             </div>
-            <div className="col-span-2 md:mt-0 mt-2 flex justify-end">
-              <button className="md:w-1/4 w-full relative flex-colo bg-subMain hover:bg-transparent border-2 border-subMain transitions md:h-64 h-20 rounded font-medium ">
-                <div className="flex-row gap-6 text-md uppercase tracking-widest absolute md:rotate-90 flex justify-between">
-                  Download
-                  <FiLogIn className="w-6 h-6" />
-                </div>
-              </button>
-            </div>
+          
           </div>
         </div>
       </div>

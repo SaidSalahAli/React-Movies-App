@@ -6,8 +6,8 @@ import { CgUser } from "react-icons/cg";
 import { FaHeart } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
-import { NavbarLinks } from "../Navbar/NavbarLinks";
-const ModileFooter = () => {
+
+const ModileFooter = ({lengthfavourites}) => {
   const [showLinks, setShowLinks] = useState(false);
   
   const active = "bg-white text-main ";
@@ -28,7 +28,7 @@ const ModileFooter = () => {
         {/* Drawer */}
       </div>
       <footer className="lg:hidden fixed z-50 bottom-0 w-full px-1 ">
-        <div className="bg-dry rounded-md flex-btn w-full p-1">
+        <div className="bg-dry   rounded-md flex-btn w-full p-1">
           <NavLink to="/movies" className={Hover}>
             <BsCollectionPlay />
           </NavLink>
@@ -36,7 +36,7 @@ const ModileFooter = () => {
             <div className="relative">
               <FiHeart className="w-6  h-6" />
               <div className="w-5 h-5 mt-1 flex-colo rounded-full text-xs bg-subMain text-white absolute -top-5 -right-1">
-                3
+          {lengthfavourites}
               </div>
             </div>
           </NavLink>
@@ -53,8 +53,8 @@ const ModileFooter = () => {
       </footer>
       <div className="flex justify-center items-center mt-28  md:fixed ">
         {showLinks && (
-          <div className=" text-md absolute  gap-5 pt-28  bottom-0 right-0 h-screen  w-60 bg-main border border-border">
-            <div className="">
+          <div className=" text-md fixed  gap-5 pt-28  bottom-0 right-0 h-screen  w-60 bg-main border border-border">
+            <div className="mt-5">
             <NavLink to="/movies" className={Hoverr}>
               Movies
             </NavLink>
@@ -72,7 +72,7 @@ const ModileFooter = () => {
               className={`${Hover} relative flex justify-center `}>
               <FaHeart className="w-6 h-6 mt-6" />
               <div className="w-5 h-5 mt-6   flex justify-center rounded-full text-xs bg-subMain text-white absolute -top-5 right-24   ">
-                5
+            {lengthfavourites}
               </div>
             </NavLink>
             </div>

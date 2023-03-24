@@ -4,24 +4,23 @@ import { useParams } from "react-router-dom";
 import MovieSimilar from "../Components/single/MovieSimilar";
 import MovieInfo from "../Components/single/MovieInfo";
 import MovieRates from "../Components/single/MovieRates";
-import MoviesCasts from "../Components/single/MoviesCasts";
 import Layout from "../Layout/Layout";
 import ShareModel from "../Components/Model/ShareModel";
+import WatchPage from "./WatchPage";
+import Watchs from "./watch";
 
-const SingleMovies = ({lengthfavourites}) => {
+const SingleMovies = ({lengthfavourites,handleFavouritesClick}) => {
   const param = useParams();
   let movieId = param.id ;
   const [movie, setMovie] = useState({});
-  // const [truee, setTruee] = useState(false);
+
   // 
-  // setTruee(true)
+
   const getMovieDetails = async () => {
     const res = await axios.get(
       `https://api.themoviedb.org/3/movie/${param.id}?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&language=en-US`
     );
     setMovie(res.data);
-    // setTruee(false)
-    // console.log(res.data)
   };
 
   const [movieSimilar, setMovieSimilar] = useState([]);
@@ -48,8 +47,9 @@ const SingleMovies = ({lengthfavourites}) => {
       movie={movie}
       />
       <MovieInfo movie={movie} setModelLopen={setModelLopen}  />
+      <Watchs handleFavouritesClick={handleFavouritesClick} />
       <div className="container mx-auto min-h-screen px-2 my-6 ">
-        <MoviesCasts movie={movie} />
+        {/* <MoviesCasts movie={movie} /> */}
         {/* Rates */}
         <MovieRates movie={movie} />
         {/* Movie Similar */}

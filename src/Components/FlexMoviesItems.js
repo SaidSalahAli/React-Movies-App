@@ -2,11 +2,10 @@ import {FaRegCalendarAlt} from "react-icons/fa"
 import {BiTime} from "react-icons/bi"
 
 const FlexMoviesItems = ({ movie }) => {
-
   return (
     <div className="flex space-x-4">
       <div className="flex items-center gap-2">
-        <span className="text-sm font-medium">{movie.original_title}</span>
+        <span className=" text-lg font-medium">{movie.original_title}</span>
       </div>
       <div className="flex items-center gap-2">
         <FaRegCalendarAlt className='text-subMain w-3 h-3'/>

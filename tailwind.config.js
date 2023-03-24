@@ -15,11 +15,11 @@ module.exports = {
         xs:"475px"
       },
       colors:{
-        main: '#000814',
+        main: '#22223b',
         subMain: '#f20000',
-        dry: '#07070a',
+        dry: '#4a4e69',
         star: '#ffb000',
-        text: '#c0c0c0',
+        text: '#eeee',
         border: '#4d5563',
         dryGray: '#c0c0c0',
 

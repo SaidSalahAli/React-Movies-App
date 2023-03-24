@@ -4,12 +4,6 @@ import Layout from "./../Layout/Layout";
 
 const AboutUs = ({lengthfavourites}) => {
 
-//   const goToTop = () => {
-//     window.scrollTo({
-//         top: 0,
-//         behavior: 'smooth',
-//     });
-// };
 
   return (
     <Layout lengthfavourites={lengthfavourites}>

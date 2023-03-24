@@ -1,12 +1,18 @@
 import React from 'react'
 import { useState } from 'react'
 import { HiPlusCircle } from 'react-icons/hi'
+import { useDispatch } from 'react-redux'
 import CategroyModel from '../../../Components/Model/CategroyModel'
 import Table2 from '../../../Components/Tebol2'
 import SideBar from '../SideBar'
 
-const Categories = ({movies,lengthfavourites }) => {
+const Categories = ({lengthfavourites }) => {
   const [modelOpen,setModelLopen ] =useState(false)
+
+  // const dispatch = useDispatch();
+  // const search = async (genre) => {
+  //   dispatch(filterbygenres(genre));
+  // };
   return (
    <SideBar lengthfavourites={lengthfavourites}>
     <CategroyModel  modelOpen={modelOpen} setModelLopen={setModelLopen}/>
@@ -20,7 +26,7 @@ const Categories = ({movies,lengthfavourites }) => {
            <HiPlusCircle />Create 
         </button>
         </div>
-        <Table2 movies={movies} users={true}/>
+        <Table2 users={true}/>
         </div>
    </SideBar>
   )

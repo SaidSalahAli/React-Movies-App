@@ -8,7 +8,7 @@ export const getAllMoviess = () => {
     dispatch({
       type: ALLMOVIES,
       data: res.data.results,
-      pages: res.data.total_pages,
+    
     });
   };
 };
@@ -22,9 +22,33 @@ export const getAllMovieSarsh = (word) => {
     dispatch({
       type: ALLMOVIES,
       data: res.data.results,
-      pages: res.data.total_pages,
     });
   };
+};
+
+
+export const filterbygenres =  (genre) => {
+  return async (dispatch) => {
+  const res = await axios.get(
+    `https://api.themoviedb.org/3/movie/popular?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&with_genres=${genre}&language=en-US`
+  );
+  dispatch({
+    type:ALLMOVIES,
+    data:res.data.results,
+  });
+};
+};
+
+export const filterbygenreeAction = () => {
+  return async (dispatch) => {
+  const res = await axios.get(
+    ` https://api.themoviedb.org/3/genre/movie/list?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&language=en-US`
+  );
+  dispatch({
+    type:ALLMOVIES,
+    data:res.data.results
+  });
+};
 };
 
 export const getpeges = (page) => {

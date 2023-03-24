@@ -1,12 +1,14 @@
-import { Listbox } from '@headlessui/react';
-import axios from 'axios';
-import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { Listbox } from "@headlessui/react";
+import axios from "axios";
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { filterbygenres } from "../Redux/action/movieAction";
 
-const FiltersByGenrs = ({filterbygenre }) => {
+const FiltersByGenrs = () => {
   const [genres, setGenrs] = useState([]);
-  
+
   const filterbygenr = async () => {
     const res = await axios.get(
       ` https://api.themoviedb.org/3/genre/movie/list?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&language=en-US`
@@ -18,14 +20,17 @@ const FiltersByGenrs = ({filterbygenre }) => {
     filterbygenr();
   }, []);
 
-  const handle = (id) => {
-    filterbygenre(id);
+  const handle = (genre) => {
+    search(genre);
+  };
+  const dispatch = useDispatch();
+  const search = async (genre) => {
+    dispatch(filterbygenres(genre));
   };
 
   return (
-     <>
-     
-    {genres.map((genre, index) => (
+    <>
+      {genres.map((genre, index) => (
         <Listbox.Option
           key={index}
           className={({ active }) =>
@@ -54,8 +59,8 @@ const FiltersByGenrs = ({filterbygenre }) => {
           )}
         </Listbox.Option>
       ))}
-      </>
-  )
-}
+    </>
+  );
+};
 
-export default FiltersByGenrs
+export default FiltersByGenrs;

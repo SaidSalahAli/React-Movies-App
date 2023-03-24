@@ -1,50 +1,35 @@
 import React, { Fragment } from "react";
-import { FaCloudDownloadAlt, FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AiOutlineCloudDownload } from "react-icons/ai";
 import { useState } from "react";
-// import axios from "axios";
-// import { useEffect } from "react";
 import FiltersByGenrs from "./FiltersByGenrs";
-import Filters from "./Filters";
 import axios from "axios";
 import { useEffect } from "react";
 import { Listbox, Transition } from "@headlessui/react";
-// import { BsFillEyeFill } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllMoviess } from "../Redux/action/movieAction";
 
 const Text = "text-sm  text-left leading-6 whitespace-nowrap  px-5 py-3 ";
 const Head = "text-xs text-left text-main font-semibold px-6 py-2 uppercase";
 const Table2 = ({ users, data }) => {
   const [genres, setGenrs] = useState([]);
   const [movies, setMovies] = useState([]);
-  // cost [sarchMovies , sarchMovies] = useState([])/
-  // const moviesByYear = movies.filter((movie) => movie.release_date )
-  // const allData = [...new Set(movies.map(data =>data.genre_ids))]
-  // console.log(allData)
-  //get all movies from API
-  const getAllMovies = async () => {
-    const res = await axios.get(
-      "https://api.themoviedb.org/3/movie/popular?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&language=en-US"
-    );
-    setMovies(res.data.results);
-  };
 
-  const filterbygenree = async (genre) => {
-    const res = await axios.get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&with_genres=${genre}&language=en-US`
-    );
-
-    setMovies(res.data.results);
-  };
+ const dispatch = useDispatch();
   useEffect(() => {
-    getAllMovies();
+    dispatch(getAllMoviess());
   }, []);
+
+  const dataMovies = useSelector((state) => state.movies);
+  useEffect(() => {
+    setMovies(dataMovies);
+  }, [dataMovies]);
+
 
   const getAllMovieSarsh = async (word) => {
     if(word === '' ){
-      getAllMovies()
+      // getAllMoviess()    
     }else{
     const res = await axios.get(
       `https://api.themoviedb.org/3/search/movie?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&query=${word}&language=en-US`
@@ -79,7 +64,7 @@ const Table2 = ({ users, data }) => {
       `https://api.themoviedb.org/3/movie/${id}/rating?api_key=42289f94dc9eeeca0b3bac1a2bb4102d`
     );
 
-    console.log(res.data);
+    setMovies(res.data.results);
   };
   const deleted =(e)=>{
    deletedMovies(e)
@@ -102,17 +87,14 @@ const Table2 = ({ users, data }) => {
                 />
               </div>
             </td>
-            <td className={`${Text}`}>{movie.title}</td>
+            <td className={`${Text}`}>{movie?.title}</td>
             <td className={`${Text} truncate`}>
               {movie.id ? movie?.id : "01066536008"}
             </td>
-            <td className={`${Text}`}>{movie.release_date}</td>
-            <td className={`${Text}`}>{genreids[movie.genre_ids[0]]}</td>
-            <td className={`${Text}`}>{movie.original_language}</td>
+            <td className={`${Text}`}>{movie?.release_date}</td>
+            <td className={`${Text}`}>{genreids?.[movie.genre_ids[0]]}</td>
+            <td className={`${Text}`}>{movie?.original_language}</td>
             <td className={`${Text}float-right flex  gap-2`}>
-              <button className="border border-border bg-dry flex  gap-2 text-border rounded py-1 px-2 ">
-                Edit <FaEdit className="text-green-500" />
-              </button>
               <button onClick={()=>deleted(movie?.id)} className="bg-subMain text-white rounded flex-colo w-6 h-7 ">
                 <MdDelete />
               </button>
@@ -131,9 +113,7 @@ const Table2 = ({ users, data }) => {
 
             <td className={`${Text}`}>{movie.release_date}</td>
             <td className={`${Text} folat-right flex gap-2`}>
-              <button className="border border-border bg-dry flex  gap-2 text-border rounded py-1 px-2 ">
-                Edit <FaCloudDownloadAlt className="text-green-500" />
-              </button>
+    
               <Link
                 to={`/movie/${movie?.id}`}
                 className="bg-subMain text-white rounded flex-colo w-6 h-7">
@@ -181,8 +161,6 @@ const Table2 = ({ users, data }) => {
                 leaveTo=" opacity-0">
                 <Listbox.Options className="absolute z-10 mt-1 w-full bg-white border border-gray-800 text-black rounded-md shadow-lg max-h-60 py-1 text-base ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm ">
                   <FiltersByGenrs
-                    genres={genres}
-                    filterbygenre={filterbygenree}
                   />
                 </Listbox.Options>
               </Transition>
@@ -242,3 +220,4 @@ const Table2 = ({ users, data }) => {
 };
 
 export default Table2;
+

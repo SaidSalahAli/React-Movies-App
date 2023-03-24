@@ -4,6 +4,6 @@ import thunk from "redux-thunk";
 // import { composeWithDevTools } from 'redux-devtools-extension';
 
 // 1- create a store
-const store = createStore(moviesReducer, applyMiddleware(thunk));
+const store = createStore(moviesReducer, applyMiddleware(thunk))
 
 export default store;

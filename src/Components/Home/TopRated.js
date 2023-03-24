@@ -10,22 +10,30 @@ import { Navigation, Autoplay } from "swiper";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Rating from "../Stars";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllMoviess } from "../../Redux/action/movieAction";
 
-const TopRated = ({ movies }) => {
+const TopRated = ({handleFavouritesClick}) => {
   const [nextEl, setNextEl] = useState(null);
   const [prevEl, setPrevEl] = useState(null);
   const classNames =
     "hover:bg-dry transitions text-sm rounded w-8 h-8 flex-colo bg-subMain text-white";
 
-    
-  const goToTop = () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-    });
-};
+  const [movies, setMovies] = useState([]);
+
+ const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllMoviess());
+  }, []);
+
+  const dataMovies = useSelector((state) => state.movies);
+  useEffect(() => {
+    setMovies(dataMovies);
+  }, [dataMovies]);
+
   return (
-    <div className="my-16 static   ">
+    <div className="my-16 static  ml-20 mr-20 ">
       <Titles title="Top Rated" Icon={BsBookmarkStarFill} />
       <div className="relative mt-10 my-16  ">
         <Swiper
@@ -55,11 +63,11 @@ const TopRated = ({ movies }) => {
                         className="w-full h-auto object-cover  shadow-lg rounded-lg shadow-indigo-500/100"
                       />
                       <div className="px-4  hoveres gap-6  text-center absolute h bg-black bg-opacity-70 top-0  left-0 right-0 bottom-0">
-                        <button className="w-12 h-12 flex-colo transitions hover:bg-subMain rounded-full bg-white bg-opacity-30 text-white">
+                        <button
+                        onClick={()=>handleFavouritesClick(movie)} className="w-12 h-12 flex-colo transitions hover:bg-subMain rounded-full bg-white bg-opacity-30 text-white">
                           <FaHeart />
                         </button>
                         <Link
-                          onClick={goToTop}
                           to={`/movie/${movie.id}`}
                           className="font-semibold text-xl trancuted line-clamp-2">
                           {movie.title}
@@ -76,7 +84,7 @@ const TopRated = ({ movies }) => {
                 ""
               )
             )
-            .splice(0, 10)}
+        }
         </Swiper>
         {/* {flex justify-between} */}
         <div className="flex justify-between   ">

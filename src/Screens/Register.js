@@ -35,9 +35,9 @@ const Register = ({lengthfavourites}) => {
          <Link to="/dashBoard" className="bg-subMain transitions hover:bg-main  flex justify-center gap-4 text-white p-4 rounded-lg w-full">
           <FiLogIn/> Sign In 
          </Link>
-         <p className="text-conter text-border">
+         <p className="text-conter text-dryGray">
           Already have an acconut ?
-          <Link to="/login" className="text-dryGray font-semibold ml-2 hover:text-subMain transitions" >
+          <Link to="/login" className="text-white font-semibold ml-2 hover:text-subMain transitions" >
               Sign In
           </Link>
          </p>

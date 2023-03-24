@@ -14,7 +14,7 @@ const MovieRates = ({ movie }) => {
   const Ratings = [
     {
       title: "0- Poor",
-      value: 5,
+      value: 0,
     },
     {
       title: "1 - Fair",
@@ -32,16 +32,14 @@ const MovieRates = ({ movie }) => {
       title: "4 - Excellent",
       value: 9,
     },
-    {
-      title: "5 - Excellent",
-      value: 10,
-    },
+ 
   ];
+  
   const [rating, setRating] = useState();
   return (
     <div className="my-12">
       <Titles title="Reviews" Icon={BsBookmarkCheckFill} />
-      <div className="mt-10 xl:grid flex-colo grid-cols-5 gap-12 bg-dry xs:p-10 py-10 px-2 sm:p-20 rounded-lg ">
+      <div className="mt-10 xl:grid flex-colo grid-cols-5 gap-12 xs:p-10 py-10 px-2 sm:p-20 rounded-lg ">
         {/* Write review */}
         <div className="xl:col-span-2 w-full flex flex-col gap-8 ">
           <h3 className="textt-xl  text-text font-semibold ">

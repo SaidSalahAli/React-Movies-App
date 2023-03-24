@@ -6,7 +6,6 @@ import AboutUs from "./Screens/AboutUs";
 import ContactUs from "./Screens/ContactUs";
 import Categories from "./Screens/Dashboard/Admin/Categories";
 import DashBoard from "./Screens/Dashboard/Admin/DashBoard";
-import Movieslist from "./Screens/Dashboard/Admin/MoviesList";
 import FavoritesMovies from "./Screens/Dashboard/favoritesMovies";
 import Passwoed from "./Screens/Dashboard/Passwoed";
 import Portfile from "./Screens/Dashboard/Portfile";
@@ -22,57 +21,38 @@ import Research from "./Screens/Research";
 
 const App = () => {
   Aos.init();
-  const [movies, setMovies] = useState([]);
-  const [favourites, setFavourites] = useState([]);
-  // console.log(favourites.length)
+
+  const [favourites, setFavourites] = useState(
+    () => JSON.parse(localStorage.getItem("favourites")) || "[]"
+  );
   const lengthfavourites = favourites?.length;
 
-  console.log(lengthfavourites);
-  // cost [sarchMovies , sarchMovies] = useState([])/
-  // const moviesByYear = movies.filter((movie) => movie.release_date )
-  // const allData = [...new Set(movies.map(data =>data.genre_ids))]
-  // console.log(allData)
+  useEffect(() => {
+    localStorage.setItem("favourites", JSON.stringify(favourites));
+  }, [favourites]);
 
-  // console.log(favourites)
   const addFavouriteMovie = (movie) => {
     const newFavouriteList = [...favourites, movie];
     setFavourites(newFavouriteList);
   };
-  //get all movies from API
-  const getAllMovies = async () => {
-    const res = await axios.get(
-      "https://api.themoviedb.org/3/movie/popular?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&language=en-US"
-    );
-    setMovies(res.data.results);
-  };
-  let newMovie = movies.filter(
-    (ele) =>
-      !["ja", "ko", "tl", "cn", "fr", "zh"].includes(ele.original_language) &&
-      !ele.genre_ids.includes(10749)
-  );
-
-  const getAllMovieSarsh = async (word) => {
-    if (word === "") {
-      getAllMovies();
-    } else {
-      const res = await axios.get(
-        `https://api.themoviedb.org/3/search/movie?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&query=${word}&language=en-US`
-      );
-      setMovies(res.data.results);
-    }
-  };
-
-  useEffect(() => {
-    getAllMovies();
-  }, []);
-
-  const filterbygenre = async (genre) => {
-    const res = await axios.get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&with_genres=${genre}&language=en-US`
+  const removeFavouriteMovie = (movie) =>{
+    console.log(movie)
+    const newFavouriteList = favourites.filter (
+      (favourite) => favourite?.id !== movie?.id
     );
 
-    setMovies(res.data.results);
+    setFavourites(newFavouriteList);
   };
+  console.log(favourites)
+
+  //   let newMovie = movies.filter(
+  //     (ele) =>
+  //       !["ja", "ko", "tl", "cn", "fr", "zh"].includes(ele.original_language) &&
+  //       !ele.genre_ids.includes(10749)
+  // );
+
+  const removeAllMovies = (i) => setFavourites([]);
+
   return (
     <ScrollToped>
       <Routes>
@@ -80,10 +60,8 @@ const App = () => {
           path="/"
           element={
             <HomeScreen
-              movies={newMovie}
               handleFavouritesClick={addFavouriteMovie}
               lengthfavourites={lengthfavourites}
-              getAllMovieSarsh={getAllMovieSarsh}
             />
           }
         />
@@ -101,35 +79,20 @@ const App = () => {
             <MoviesPage
               lengthfavourites={lengthfavourites}
               handleFavouritesClick={addFavouriteMovie}
-              filterbygenre={filterbygenre}
-              movies={newMovie}
             />
           }
         />
         <Route
           path="/research"
-          element={
-            <Research
-              lengthfavourites={lengthfavourites}
-              getAllMovieSarsh={getAllMovieSarsh}
-              movies={newMovie}
-            />
-          }
+          element={<Research lengthfavourites={lengthfavourites} />}
         />
         <Route
           path="/movie/:id"
-          element={
-            <SingleMovies
-              movies={newMovie}
-              lengthfavourites={lengthfavourites}
-            />
-          }
+          element={<SingleMovies  handleFavouritesClick={addFavouriteMovie} lengthfavourites={lengthfavourites} />}
         />
         <Route
           path="/watch/:id"
-          element={
-            <WatchPage movies={newMovie} lengthfavourites={lengthfavourites} />
-          }
+          element={<WatchPage  lengthfavourites={lengthfavourites} />}
         />
         <Route
           path="/login"
@@ -149,31 +112,23 @@ const App = () => {
         />
         <Route
           path="/dashBoard"
-          element={
-            <DashBoard movies={newMovie} lengthfavourites={lengthfavourites} />
-          }
+          element={<DashBoard lengthfavourites={lengthfavourites} />}
         />
 
         <Route
           path="/favorites"
           element={
             <FavoritesMovies
+              removeAllMovies={removeAllMovies}
+              removeFavouriteMovie={removeFavouriteMovie}
               favourites={favourites}
               lengthfavourites={lengthfavourites}
             />
           }
         />
         <Route
-          path="/movieslist"
-          element={
-            <Movieslist movies={newMovie} lengthfavourites={lengthfavourites} />
-          }
-        />
-        <Route
           path="/categories"
-          element={
-            <Categories movies={newMovie} lengthfavourites={lengthfavourites} />
-          }
+          element={<Categories lengthfavourites={lengthfavourites} />}
         />
 
         <Route path="*" element={<NotFound />} />

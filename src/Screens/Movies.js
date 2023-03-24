@@ -1,17 +1,35 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
+import { FaHeart } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 // import { CgSpinner } from "react-icons/cg";
 import Filters from "../Components/Filters";
 import Movies from "../Components/Movie";
 // import Head from "../Components/Home/Head";
 import Layout from "../Layout/Layout";
+import { getAllMoviess } from "../Redux/action/movieAction";
 
-const MoviesPage = ({ movies, filterbyYarse, filterbygenre, genres ,lengthfavourites,handleFavouritesClick}) => {
-  const maxPages = 10;
+const MoviesPage = ({filterbygenre ,lengthfavourites,handleFavouritesClick}) => {
+
+  const maxPages = 15;
   const [page, setPege] = useState(maxPages);
   const handelLodingMore = () => {
     setPege(page + maxPages);
   };
-  
+
+  const [movies, setMovies] = useState([]);
+
+ const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllMoviess());
+  }, []);
+  const dataMovies = useSelector((state) => state.movies);
+  useEffect(() => {
+    setMovies(dataMovies);
+  }, [dataMovies]);
+
+   
+
   return (
     <Layout lengthfavourites={lengthfavourites}>
       <div
@@ -21,17 +39,14 @@ const MoviesPage = ({ movies, filterbyYarse, filterbygenre, genres ,lengthfavour
         data-aos-offset="200"
         className="min-height-screen container mx-auto px-20 my-6">
         <Filters
-          genres={genres}
           filterbygenre={filterbygenre}
-          filterbyYarse={filterbyYarse}
         />
         <p className="text-lg front-medium my-6">
           TOTAL <span className="font-bold text-subMain">{movies?.length}</span>
-          {"   "}
         </p>
-        <div className="grid sm:mt-10 mt-6 xl:grid-cols-4 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 gap-6">
+        <div className="grid sm:12 mt-6 xl:grid-cols-4 lg:grid-cols-3  sm:grid-cols-2 xs:grid-cols-2 gap-8">
           {movies.slice(0, page)?.map((movie,id) => (
-            <Movies handleFavouritesClick={handleFavouritesClick} key={id} movie={movie} />
+              <Movies handleFavouritesClick={handleFavouritesClick} key={id} movie={movie} />
           ))}
         </div>
         {/* loading More */}

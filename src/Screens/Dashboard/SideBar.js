@@ -14,11 +14,6 @@ const SideBar = ({ children ,lengthfavourites}) => {
       icons: BsFillGridFill,
     },
     {
-      name: "Movies list",
-      link: "/movieslist",
-      icons: FaRegListAlt,
-    },
-    {
       name: "Categories ",
       link: "/categories",
       icons: HiViewGridAdd,
