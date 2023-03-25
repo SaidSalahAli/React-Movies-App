@@ -44,8 +44,8 @@ const MovieInfo = ({ movie,setModelLopen }) => {
               <h1 className="xl:text-4x1 capitalize font-sans text-2xl font-bold">
                 {movie?.title}
               </h1>
-              <div className="flex  gap-4 font-medium text-dryGray">
-                <div className="flex-colo bg-subMain text-xs px-2 py-1">
+              <div className="lg:flex lg:justify-end xs:flex-row-reverse  gap-4 font-medium text-dryGray">
+                <div className="flex-colo bg-subMain xs:w-20 text-xs px-2 py-1">
                   {movie?.vote_count} K
                 </div>
                 <FlexMoviesItems movie={movie} />
