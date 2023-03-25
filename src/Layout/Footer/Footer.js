@@ -76,22 +76,6 @@ const Links = [
 ];
 const Footer = () => {
 
-  // const [genres, setGenrs] = useState({}); 
-  // // console.log(typeof genres);  
-  // // const [category, setCategory] = useState(CategoriesData[0]);
-  // // const [year, setYear] = useState(YearData[1]);
-  // // const [rates, setRates] = useState(RatesData[0]);
-
-  // const filterbygenr = async () => {
-  //   const res = await axios.get(
-  //     ` https://api.themoviedb.org/3/genre/movie/list?api_key=42289f94dc9eeeca0b3bac1a2bb4102d&language=en-US`
-  //   );
-
-  //   setGenrs(res.data.genres);
-  // };
-  // useEffect(() => {
-  //   filterbygenr();
-  // }, []);
 
   return (
     <div className="bg-dry py-4  ">

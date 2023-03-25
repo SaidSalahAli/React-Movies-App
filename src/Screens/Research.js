@@ -25,7 +25,7 @@ const handle = (word) =>{
         data-aos-duration="1000"
         data-aos-delay="10"
         data-aos-offset="200"
-        className="min-height-screen h-auto container mx-auto px-20 my-6">
+        className="min-h-screen container mx-auto px-20 my-6">
              <div className="w-full text-sm  bg-dryGray rounded flex-btn gap-4">
             <input 
               type="text"
@@ -37,7 +37,7 @@ const handle = (word) =>{
         <p className="text-lg front-medium my-6">
           TOTAL <span className="font-bold text-subMain">{search?.length}</span>
         </p>
-        <div className="grid sm:mt-10 mt-6 xl:grid-cols-4 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 gap-6">
+        <div className="grid  sm:mt-10 mt-6 xl:grid-cols-4 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 gap-6">
           {search?.map((movie) => (
             <Movies key={movie.id} movie={movie} />
           ))}

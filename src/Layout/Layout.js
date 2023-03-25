@@ -9,7 +9,7 @@ const Layout = ({ children, getAllMovieSarsh,lengthfavourites}) => {
       <Navbar getAllMovieSarsh={getAllMovieSarsh} lengthfavourites={lengthfavourites}/>
       {children}
       <Footer />
-    <ModileFooter lengthfavourites={lengthfavourites} />
+     <ModileFooter lengthfavourites={lengthfavourites} />
     </div>
   );
 };

@@ -21,7 +21,7 @@ const MovieSimilar = ({ movieSimilar }) => {
         module={[Autoplay]}
         spaceBetween={10}
         breakpoints={{
-          0: { slidesPerView: 1 },
+          0: { slidesPerView: 2 },
           400: { slidesPerView: 2 },
           768: { slidesPerView: 3 },
           991: { slidesPerView: 4 },

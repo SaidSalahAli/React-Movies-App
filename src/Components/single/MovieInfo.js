@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import FlexMoviesItems from "../FlexMoviesItems";
 import Rating from "../Stars";
 const MovieInfo = ({ movie,setModelLopen }) => {
+
+  // const movieProductionCompanies= movie && movie.production_companies?.map((company) =>{
+  //   return company.name.toString();
+  // // })
+  // console.log(movieProductionCompanies)
   return (
     <div className="w-full xl:h-full relative text-white">
       {movie?.backdrop_path ? (
@@ -40,9 +45,7 @@ const MovieInfo = ({ movie,setModelLopen }) => {
           <div className="col-span-2 md:grid grid-cols-5 gap-4 items-center">
             <div className="col-span-3 flex flex-col gap-10">
               {/* Title movie */}
-              <h1 className="xl:text-4x1 capitalize font-sans text-2xl font-bold">
-                {movie?.title}
-              </h1>
+          
               <h1 className="xl:text-4x1 capitalize font-sans text-2xl font-bold">
                 {movie?.title}
               </h1>
@@ -57,6 +60,9 @@ const MovieInfo = ({ movie,setModelLopen }) => {
                         </div>
               {/* descrepthion*/}
               <p className="text-text text-sm leading-7 ">{movie?.overview}</p>
+              {/* <h1 className="xl:text-4x1 capitalize font-sans text-2xl font-bold">
+                {movieProductionCompanies}
+              </h1> */}
               <div className="grid sm:grid-cols-5 grid-cols-3 gap-4 p-6 bg-main border-gray-800 rounded-lg">
                 {/* share */}
                 <div className=" col-span-1 flex-colo border-r border-border">

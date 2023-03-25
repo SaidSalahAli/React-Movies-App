@@ -25,14 +25,14 @@ const Banner = ({handleFavouritesClick}) => {
   }, [dataMovies]);
 
   return (
-    <div className="relative absou w-full max-h-screen object-cover  rounded-md  ">
+    <div className="relative  w-full  max-h-screen object-cover  rounded-md  ">
       <Swiper
         slidesPerView={1}
         loop={true}
         speed={1000}
         modules={[Autoplay]}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
-        className=" w-full  max-h-screen  object-cover  bg-dry   ">
+        className=" w-full  max-h-screen object-cover  bg-dry   ">
         {movies
           .map((movie, index) => (
             <SwiperSlide
@@ -52,10 +52,10 @@ const Banner = ({handleFavouritesClick}) => {
                   <FlexMoviesItems movie={movie} />
                 </div>
 
-                <div className="flex items-stretch  text-star">
+                <div className="flex items-stretch lg:text-2xl sm:text-base text-star">
                   <Rating className="" value={movie.vote_average} />
                 </div>
-                <div className="flex gap-5 z-10 iteme-center">
+                <div className="flex gap-5  iteme-center">
                   <Link
                     to={`/movie/${movie.id}`}
                     className="bg-subMain text-xs  hover:text-main transitions text-white px-8 py-3 rounded font-medium sm:text-sm ">

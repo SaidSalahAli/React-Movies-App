@@ -40,7 +40,7 @@ const TopRated = ({handleFavouritesClick}) => {
           navigation={{ nextEl, prevEl }}
           spaceBetween={10}
           breakpoints={{
-            0: { slidesPerView: 1 },
+            0: { slidesPerView: 2 },
             400: { slidesPerView: 2 },
             768: { slidesPerView: 3 },
             991: { slidesPerView: 4 },
@@ -87,7 +87,7 @@ const TopRated = ({handleFavouritesClick}) => {
         }
         </Swiper>
         {/* {flex justify-between} */}
-        <div className="flex justify-between   ">
+        <div className="flex justify-between  ">
           <button className={classNames} ref={(node) => setPrevEl(node)}>
             <BsCaretLeftFill />
           </button>

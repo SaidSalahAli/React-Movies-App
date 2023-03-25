@@ -14,14 +14,14 @@ const HomeScreen = ({
     <Layout
       lengthfavourites={lengthfavourites}
       getAllMovieSarsh={getAllMovieSarsh}>
-      <Banner handleFavouritesClick={handleFavouritesClick} />
-      <TopRated  handleFavouritesClick={handleFavouritesClick} />
       <div
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-delay="10"
         data-aos-offset="200"
-        className="container mx-auto min-h-screen px-20 mb-6">
+        className=" ">
+        <Banner handleFavouritesClick={handleFavouritesClick} />
+        <TopRated handleFavouritesClick={handleFavouritesClick} />
         <PopularMovies handleFavouritesClick={handleFavouritesClick} />
       </div>
     </Layout>
