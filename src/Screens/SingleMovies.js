@@ -49,7 +49,6 @@ const SingleMovies = ({lengthfavourites,handleFavouritesClick}) => {
       <MovieInfo movie={movie} setModelLopen={setModelLopen}  />
       <Watchs handleFavouritesClick={handleFavouritesClick} />
       <div className="container mx-auto min-h-screen px-2 my-6 ">
-        {/* <MoviesCasts movie={movie} /> */}
         {/* Rates */}
         <MovieRates movie={movie} />
         {/* Movie Similar */}

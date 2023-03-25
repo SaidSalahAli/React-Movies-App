@@ -32,14 +32,14 @@ const Watchs = ({ movies}) => {
 
   return (
       <div className="containar mx-auto bg-dry p-6 mb-12">
-        <div className="flex-btn flex-wrap mb-6 gap-2 bg-main rounded border border-gray-800 p-6">
+        <div className="flex-btn flex justify-between mb-6 gap-2 bg-main rounded border border-gray-800 p-6">
           <Link
             to={`/movie/${watchPage?.id}`}
             className="md:text-xl text-sm flex gap-3 items-center font-bold text-dryGray">
             <BiArrowBack />
             {watchPage?.title}
           </Link>
-          <div className="flex-btn sm:w-auto w-full gap-5">
+          <div className="flex-btn  justify-end   gap-5">
             <button 
    
              className="bg-white hover:text-subMain transitions bg-opacity-30 text-white rounded px-4 py-3 text-sm">
@@ -55,7 +55,7 @@ const Watchs = ({ movies}) => {
             height="450px"
             src={`https://www.youtube.com/embed/${play[0]?.key}`}
             title="YouTube video player"
-            frameBorder="0"
+            // frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen></iframe>
         ) : (

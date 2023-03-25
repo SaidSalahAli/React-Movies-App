@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Movies = ({ movie, handleFavouritesClick }) => {
   
   return (
-    <div className="border border-border p-1 hover:scale-110 hover:shadow-indigo-500/50 transitions relative rounded-lg  overflow-hidden shadow-lg">
+    <div className="border h-80 border-border p-1 hover:scale-110 hover:shadow-indigo-500/50 transitions relative rounded-lg  overflow-hidden shadow-lg">
       {movie ? (
         <div>
           <Link to={`/movie/${movie?.id}`} className="w-full">

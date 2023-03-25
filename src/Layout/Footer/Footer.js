@@ -78,7 +78,7 @@ const Footer = () => {
 
 
   return (
-    <div className="bg-dry py-4  ">
+    <div className="bg-dry p-4 ">
       <div className="container mx-auto px-2">
         <div className="grid grid-cols-2 md:grid-cols-7 xl:grid-cols-12 gap-5 sm:gap-9 lg:gap-11 xl:gap-7 py-10 justify-between">
           {Links.map((link, index) => (
@@ -113,7 +113,7 @@ const Footer = () => {
 
             <p className="leading-7 text-sm text-white mt-3">
               <span>I am Said Salah Frontend developer |React.js| 
-                , I from Egypt</span>
+                , I am from Egypt</span>
               <br />
               <span>Till : +201066536008 </span>
               <br />
@@ -133,15 +133,16 @@ const Footer = () => {
                 <AiOutlineInstagram size={30} />
               </a>
               <a
-                href="AiFillFacebook"
+                href="https://www.facebook.com/alhdre.s"
                 className="text-white hover:text-gray-900 transitions dark:hover:text-subMain">
                 <AiFillFacebook size={30} />
               </a>
               <a
-                href="https://github.com/SaidSalahAli"
-                className="text-gray-500 hover:text-gray-900 transitions dark:hover:text-subMain">
+                href="https://www.linkedin.com/in/said-salah-a064a5234/"
+                className="text-white hover:text-gray-900 transitions dark:hover:text-subMain">
                 <AiFillLinkedin size={30} />
               </a>
+
             </div>
           </div>
         </div>

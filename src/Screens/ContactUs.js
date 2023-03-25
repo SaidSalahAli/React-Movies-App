@@ -32,53 +32,12 @@ const ContactUs = ({lengthfavourites}) => {
     <Layout lengthfavourites={lengthfavourites}>
       <div className="  min-height-screen container mx-auto px-2 my-6">
         <Head title="Contact Us"/>
-      <div className="grid mg:grid-cols-2 gap-6 lg:my-20 my-10 lg:grid-cols-2 xl:gap-8" >
-        <div className=" mt-8 md:w-96 md:max-w-full mx-auto ">  
-            <form method="POST" action="">
-              <label className="block mb-6  text-black">
-                <span className="text-gray-300  ">Your name</span>
-                <input
-                  type="text"
-                  name="name"
-                  className="block w-full mt-1 p-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                  placeholder="your name"
-                />
-              </label>
-              <label className="block mb-6 text-black">
-                <span className="text-gray-300  ">Email address</span>
-                <input
-                  name="email"
-                  type="email"
-                  className="block w-full mt-1 p-2 border-gray-900 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 "
-                  placeholder= "said@example.com"
-                  required
-                />
-              </label>
-              <label className="block mb-6 text-black">
-                <span className="text-gray-300">Message</span>
-                <textarea
-                  name="message"
-                  className=" block w-full mt-1 p-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300  focus:ring focus:ring-indigo-200 focus:ring-opacity-50 "
-                  rows="3"
-                  placeholder="Tell us what you're thinking about..."></textarea>
-              </label>
-              <div className="mb-6">
-                <button
-                  type="submit"
-                  className="h-10 px-5 text-indigo-100 bg-subMain rounded-lg transition-color sduration-150 focus:shadow-outline">
-                  Contact Us
-                </button>
-              </div>
-              <div></div>
-            </form>
-  
-        </div>
-
-        <div className="flex flex-wrap md:flex-wrap-reversecontainer items-center  ">
+      <div className="grid mg:grid-cols-2 gap-6 lg:my-20 my-10 lg:grid-cols-1 xl:gap-8" >
+        <div className=" grid  lg:grid-cols-3 lg:gap-3 xs:p-20 md:flex-wrap-reversecontainer items-center ">
           {contactData.map((item) => (
             <div
               key={item.id}
-              className="border m-2  border-border flex-colo p-10 bg-dry rounded-lg text-center items-center">
+              className="border m-2 min-w-full border-border flex-colo p-10 bg-dry rounded-lg text-center items-center">
               <span className="flex-colo w-10 h-10  mb-4 rounded-full bg-main text-subMain text-2xl">
                 <item.icon />
               </span>

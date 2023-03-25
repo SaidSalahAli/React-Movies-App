@@ -5,10 +5,6 @@ import FlexMoviesItems from "../FlexMoviesItems";
 import Rating from "../Stars";
 const MovieInfo = ({ movie,setModelLopen }) => {
 
-  // const movieProductionCompanies= movie && movie.production_companies?.map((company) =>{
-  //   return company.name.toString();
-  // // })
-  // console.log(movieProductionCompanies)
   return (
     <div className="w-full xl:h-full relative text-white">
       {movie?.backdrop_path ? (
@@ -45,11 +41,10 @@ const MovieInfo = ({ movie,setModelLopen }) => {
           <div className="col-span-2 md:grid grid-cols-5 gap-4 items-center">
             <div className="col-span-3 flex flex-col gap-10">
               {/* Title movie */}
-          
               <h1 className="xl:text-4x1 capitalize font-sans text-2xl font-bold">
                 {movie?.title}
               </h1>
-              <div className="flex items-center gap-4 font-medium text-dryGray">
+              <div className="flex  gap-4 font-medium text-dryGray">
                 <div className="flex-colo bg-subMain text-xs px-2 py-1">
                   {movie?.vote_count} K
                 </div>

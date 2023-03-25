@@ -26,7 +26,7 @@ const Filters = () => {
   ];
 
   return (
-    <div className="my-6 bg-dry border  text-dryGray border-gray-800 grid md:grid-cols-4 grid-cols-2 lg:gap-12 gap-2 rounded p-6">
+    <div className="my-6 bg-dry border  text-dryGray border-gray-800 grid md:grid-cols-4 grid-cols-1  lg:gap-12 gap-2 rounded p-6">
       {Filter.map((item, id) => (
         <Listbox key={id} value={item.value} onChange={item.onChange}>
           <div className="relative">
