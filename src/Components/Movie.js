@@ -1,8 +1,8 @@
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Movies = ({ movie, handleFavouritesClick }) => {
-  
+const Movies = ({ movie, handleFavouritesClick,favourites }) => {
+
   return (
     <div className="border h-80 border-border p-1 hover:scale-110 hover:shadow-indigo-500/50 transitions relative rounded-lg  overflow-hidden shadow-lg">
       {movie ? (
@@ -26,7 +26,7 @@ const Movies = ({ movie, handleFavouritesClick }) => {
             <h3 className="font-semibold truncate">{movie?.title}</h3>
             <button
               onClick={() => handleFavouritesClick(movie)}
-              className=" h-9 w-9 text-sm flex-colo transitions hover:bg-transparent border-2 border-subMain rounded-md bg-subMain text-white  ">
+              className={" h-9 w-9 text-sm flex-colo transitions hover:bg-transparent border-2 border-subMain bg-subMain rounded-md  text-white  "}>
               <FaHeart />
             </button>
           </div>

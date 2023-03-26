@@ -10,7 +10,7 @@ const NavBar = ({ lengthfavourites }) => {
   const Hover = ({ isActive }) => (isActive ? "text-subMain" : hover);
 
   return (
-    <div className="bg-main shadow-md sticky pl-4  top-0 z-20">
+    <div className="bg-main shadow-md sticky pl-6 pr-6 top-0 z-20">
       <div className="container mx-auto py-6 px-2  gap-10  justify-between items-center">
         <div className="col-span-6 flex justify-between ">
           <Link to="/">
@@ -31,7 +31,7 @@ const NavBar = ({ lengthfavourites }) => {
           </Link>
         {/* menus */}
 
-        <div className="  font-medium text-sm hidden gap-14  xl:gap-14 2xl:gap-20 justify-between lg:flex xl:justify-end items-center">
+        <div className="font-medium text-sm hidden gap-14  xl:gap-14 2xl:gap-20 justify-between lg:flex xl:justify-end items-center">
           <NavbarLinks lengthfavourites={lengthfavourites} Hover={Hover} />
         </div>
         </div>

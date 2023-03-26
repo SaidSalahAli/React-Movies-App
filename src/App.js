@@ -67,7 +67,7 @@ const App = () => {
   // );
 
   const removeAllMovies = (i) => setFavourites([]);
-
+ console.log(favourites)
   return (
     <ScrollToped>
       <Routes>
@@ -92,6 +92,7 @@ const App = () => {
           path="/movies"
           element={
             <MoviesPage
+            favourites={favourites}
               lengthfavourites={lengthfavourites}
               handleFavouritesClick={addFavouriteMovie}
             />

@@ -48,7 +48,7 @@ const ModileFooter = ({lengthfavourites}) => {
           </button>
         </div>
       </footer>
-      <div className="flex justify-center items-center mt-28 z-50  md:fixed ">
+      <div className="flex justify-center items-center  z-50  md:fixed ">
         {showLinks && (
           <div className=" text-md fixed z-40 gap-5 pt-28  bottom-0 right-0 h-screen  w-60 bg-main border border-border">
             <div className="mt-5">

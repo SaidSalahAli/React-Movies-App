@@ -137,7 +137,7 @@ const Table2 = ({ users, data }) => {
   }
   return (
     <div className="overflow-x-scroll overflow-hidden relative w-full">
-      <div className="my-6 bg-dry border text-dryGray border-gray-800 grid md:grid-cols-4 grid-cols-2 lg:gap-12 gap-2 rounded p-6">
+      <div className="my-6 bg-dry border text-dryGray border-gray-800 grid  grid-cols-2 lg:gap-12 gap-2 rounded p-6">
         <div>
         <input 
           onChange={(e)=> handle(e.target.value)}

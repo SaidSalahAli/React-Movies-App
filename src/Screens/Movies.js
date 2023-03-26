@@ -9,7 +9,7 @@ import Movies from "../Components/Movie";
 import Layout from "../Layout/Layout";
 import { getAllMoviess } from "../Redux/action/movieAction";
 
-const MoviesPage = ({filterbygenre ,lengthfavourites,handleFavouritesClick}) => {
+const MoviesPage = ({filterbygenre ,favourites,lengthfavourites,handleFavouritesClick}) => {
 
   const maxPages = 15;
   const [page, setPege] = useState(maxPages);
@@ -46,7 +46,7 @@ const MoviesPage = ({filterbygenre ,lengthfavourites,handleFavouritesClick}) => 
         </p>
         <div className="grid sm:12 mt-6 xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 sm:grid-cols-2 xs:grid-cols-2 gap-8">
           {movies.slice(0, page)?.map((movie,id) => (
-              <Movies handleFavouritesClick={handleFavouritesClick} key={id} movie={movie} />
+              <Movies handleFavouritesClick={handleFavouritesClick} favourites={favourites} key={id} movie={movie} />
           ))}
         </div>
         {/* loading More */}
